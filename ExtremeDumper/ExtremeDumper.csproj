@@ -42,12 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ValueTuple">
-      <HintPath>..\Libraries\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\AboutForm.cs">
@@ -56,9 +52,9 @@
     <Compile Include="Forms\AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AssemblyDetector.cs" />
+    <Compile Include="Dumper\AssemblyDetector.cs" />
     <Compile Include="DumperFactory.cs" />
-    <Compile Include="DumperCore.cs" />
+    <Compile Include="Dumper\DumperCore.cs" />
     <Compile Include="Forms\Cache.cs" />
     <Compile Include="Forms\DumperCoreWrapper.cs" />
     <Compile Include="Forms\InjectingForm.cs">
@@ -88,25 +84,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Forms\GlobalExceptionCatcher.cs" />
-    <Compile Include="IDumper.cs" />
+    <Compile Include="Dumper\IDumper.cs" />
     <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InjectingDumper\DumperInjector.cs" />
-    <Compile Include="MegaDumper\MegaDumperHelper.cs" />
-    <Compile Include="MegaDumper\MegaDumper32.cs" />
-    <Compile Include="MegaDumper\MegaDumper64.cs" />
+    <Compile Include="Dumper\MegaDumperHelper.cs" />
+    <Compile Include="Dumper\MegaDumper32.cs" />
+    <Compile Include="Dumper\MegaDumper64.cs" />
     <Compile Include="Forms\MessageBoxStub.cs" />
-    <Compile Include="MetadataDumper\EmptyDebugMessageDispatcher.cs" />
-    <Compile Include="MetadataDumper\NativeProcessReader.cs" />
-    <Compile Include="MetadataDumper\MiniCorModuleDefHelper.cs" />
-    <Compile Include="MetadataDumper\DbgDumper.cs" />
-    <Compile Include="MetadataDumper\ProfDumper.cs" />
+    <Compile Include="Dumper\MetaDumper.cs" />
     <Compile Include="Forms\Program.cs" />
-    <Compile Include="MetadataDumper\PassiveDumper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
@@ -129,23 +119,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\FastWin32\FastWin32\FastWin32.csproj">
-      <Project>{0B6AC808-3A51-4072-954F-D55DE4F0209B}</Project>
-      <Name>FastWin32</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Forms\Resources\Avatar.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Forms\Resources\Icon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="InjectingDumper\InjectingDumper2.dll" />
-    <EmbeddedResource Include="InjectingDumper\InjectingDumper4.dll" />
-  </ItemGroup>
-  <Import Project="..\Libraries\clrmd-xp\Microsoft.Diagnostics.Runtime.Shared\Microsoft.Diagnostics.Runtime.Shared.projitems" Label="Shared" />
-  <Import Project="..\Libraries\dnlib\dnlib.Shared\dnlib.Shared.projitems" Label="Shared" />
-  <Import Project="..\Libraries\dndbg\dndbg.Shared\dndbg.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

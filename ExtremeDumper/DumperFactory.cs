@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using ExtremeDumper.InjectingDumper;
-using ExtremeDumper.MegaDumper;
+using ExtremeDumper.Dumper;
 using ExtremeDumper.MetadataDumper;
 using FastWin32.Diagnostics;
 
